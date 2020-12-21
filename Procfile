@@ -1,1 +1,1 @@
-web: gunicorn app:apiAdhar.py
+web: gunicorn app:app
