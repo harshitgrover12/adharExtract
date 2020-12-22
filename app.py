@@ -141,7 +141,7 @@ def home():
         ##############################################################################################################
         ######################################## Section 3: Running PyTesseract ######################################
         ##############################################################################################################
-        pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
+
 
         # load the image as a PIL/Pillow image, apply OCR, and then delete
         # the temporary file
