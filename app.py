@@ -27,6 +27,8 @@ def home1():
 def home():
     if(request.method == 'POST'):
         # read image file string data
+        name1 = request.form['name']
+        dob = request.form['dob']
         image1= request.files['image']
         npimg = np.fromfile(image1, np.uint8)
         image = cv2.imdecode(npimg, cv2.IMREAD_COLOR)
@@ -244,13 +246,21 @@ def home():
         ###############################################################################################################
         ######################################### Section 5: Dishwasher part ##########################################
         ###############################################################################################################
-
+        nameFound = False
+        dobFound = False
         try:
+            print(text0)
             for i in text0:
                 if (len(i) == 14 and i[4] == ' ' and i[9] == ' '):
-
                     adhar = i
-
+            for i in text0:
+                if(i.find(name1)!=-1):
+                    nameFound= True
+                    break
+            for i in text0:
+                if(i.find(dob)!=-1):
+                    dobFound=True
+                    break
             # Cleaning Name
             name = text0[2]
             name = name.rstrip()
@@ -313,8 +323,10 @@ def home():
         # # Reading data back JSON(give correct path where JSON is stored)
         # with open('data.json', 'r', encoding='utf-8') as f:
         #     ndata = json.load(f)
-
-        return jsonify({'number': adhar})
+        if(dobFound and nameFound):
+            return jsonify({'data': 1})
+        else:
+            return jsonify({'data': 0})
 
 
 
