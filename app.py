@@ -330,7 +330,7 @@ def home():
 
 
 
-
+hello=0
 # A simple function to calculate the square of a number
 # the number to be squared is sent in the URL when we use GET
 # on the terminal type: curl http://127.0.0.1:5000 / home / 10
