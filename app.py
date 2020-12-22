@@ -146,7 +146,7 @@ def home():
         # load the image as a PIL/Pillow image, apply OCR, and then delete
         # the temporary file
         pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-        text = pytesseract.image_to_string(Image.open(filename), lang='eng')
+        text = pytesseract.image_to_string(Image.open(filename))
         # add +hin after eng within the same argument to extract hindi specific text - change encoding to utf-8 while writing
         # print(text)
 
